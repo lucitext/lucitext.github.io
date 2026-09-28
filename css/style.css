@@ -59,9 +59,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rose-deep);outline-
 .site-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:var(--s3);min-height:var(--header)}
 .brand{display:block;width:136px;color:var(--ink);line-height:0}
 .brand svg{display:block;width:100%;height:auto}
-.nav{display:flex;gap:28px;align-items:center;font-size:var(--fs-sm)}
-.nav a{color:var(--ink-2);text-decoration:none;white-space:nowrap;background-image:linear-gradient(var(--rose),var(--rose));background-size:0% 1.5px;background-position:0 100%;background-repeat:no-repeat;padding-bottom:2px;transition:background-size .45s ease,color .2s}
+.nav{display:flex;gap:36px;align-items:center;font-size:var(--fs-base)}
+.nav a{position:relative;color:var(--ink-2);text-decoration:none;white-space:nowrap;background-image:linear-gradient(var(--rose),var(--rose));background-size:0% 1.5px;background-position:0 100%;background-repeat:no-repeat;padding-bottom:2px;transition:background-size .45s ease,color .2s}
+/* a small bud opens beside the link on hover (same motif as the logo) */
+.nav a::before{content:"";position:absolute;left:-15px;top:45%;width:10px;height:12px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-0.62 -1.12 1.62 1.8'%3E%3Cg fill='%23e27c97' fill-opacity='1'%3E%3Cpath transform='translate(0.110 0.602) rotate(-5)' d='M0 0 C0.2 -0.46 0.6 -0.54 0.86 -0.34 C0.66 0.04 0.28 0.14 0 0 Z'/%3E%3Cpath transform='rotate(14)' d='M0 0.62 C-0.54 0.24 -0.44 -0.62 0.045 -1.08 C0.52 -0.6 0.5 0.24 0 0.62 Z'/%3E%3C/g%3E%3C/svg%3E") no-repeat center/contain;opacity:0;transform:translateY(-50%) rotate(-25deg) scale(.5);transform-origin:50% 90%;transition:opacity .3s ease,transform .45s ease}
 .nav a:hover,.nav a:focus-visible{color:var(--ink);background-size:100% 1.5px}
+.nav a:hover::before,.nav a:focus-visible::before{opacity:1;transform:translateY(-50%) rotate(0) scale(1)}
 
 /* ---------- type ---------- */
 h1,h2,h3{margin:0;color:var(--ink);font-weight:400;text-wrap:balance}
@@ -169,5 +172,5 @@ main .links a:hover::before{transform:rotate(-18deg) scale(1.15)}
 }
 
 @media (prefers-reduced-motion:reduce){
-  .btn::before,.leafi,.nav a,main a,.contact .mail,main .links a::before,.mobile-menu,.mobile-menu li{transition:none}
+  .btn::before,.leafi,.nav a,.nav a::before,main a,.contact .mail,main .links a::before,.mobile-menu,.mobile-menu li{transition:none}
 }
